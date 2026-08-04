@@ -1,0 +1,117 @@
+generated: '2026-08-04'
+method: probed
+source: live probes of /.well-known/ and contract-discovery paths on Diagonal Therapeutics hosts
+result: >-
+  none - no /.well-known/ document and no Diagonal-published machine-readable API
+  contract exists on any Diagonal Therapeutics host. diagonaltx.com is a Next.js
+  corporate marketing site backed by a Sanity CMS; there is no API host to probe.
+  One anonymously-readable structured surface WAS observed, but it is the third-party
+  Sanity Content Lake that renders the website, not an API Diagonal publishes or
+  documents - see observed_data_surfaces below.
+hosts:
+- host: https://diagonaltx.com
+  platform: Next.js (Vercel-style /_next asset paths), Sanity CMS backend
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+  - path: /openapi.json
+    status: 404
+  - path: /openapi.yaml
+    status: 404
+  - path: /swagger.json
+    status: 404
+  - path: /api-docs
+    status: 404
+  - path: /docs
+    status: 404
+  - path: /redoc
+    status: 404
+  - path: /graphql
+    status: 404
+  - path: /robots.txt
+    status: 200
+    note: >-
+      Hand-authored robots.txt. Allows all user-agents at /, disallowing /admin-panel/,
+      /api/ (the Next.js route handlers that back the site, not a public Diagonal API),
+      /_next/, /frames/, /*.json$ and /draft-mode/. Carries one AI-crawler block:
+      "User-Agent: GPTBot / Disallow: /". No other AI crawler is named, so ClaudeBot,
+      CCBot, Google-Extended, PerplexityBot and Bytespider are all permitted - an
+      OpenAI-specific block rather than a general AI-crawler policy.
+  - path: /sitemap.xml
+    status: 200
+    note: >-
+      20 URLs - the homepage, /legal-documents/privacy-policy,
+      /legal-documents/terms-of-service and 17 /news/ press releases and posters. The
+      /patients page returns 200 but is not listed in the sitemap. Every other
+      navigation item (Approach, Pipeline, Platform, About Us, Careers, News, Contact)
+      is a same-page hash anchor on the homepage, not a separate route.
+- host: https://www.diagonaltx.com
+  note: identical results to the apex host on every path above (same origin)
+hosts_that_do_not_resolve:
+- api.diagonaltx.com
+- docs.diagonaltx.com
+- developer.diagonaltx.com
+- dev.diagonaltx.com
+- app.diagonaltx.com
+- portal.diagonaltx.com
+- mcp.diagonaltx.com
+- status.diagonaltx.com
+- api-docs.diagonaltx.com
+observed_data_surfaces:
+- name: Sanity Content Lake (third-party CMS backing diagonaltx.com)
+  endpoint: https://z9vpio5p.api.sanity.io/v1/data/query/production
+  status: 200
+  auth: none observed - the `production` dataset answers anonymous GROQ queries
+  observed:
+    document_count: 124
+    document_types:
+      sanity.imageAsset: 62
+      investors: 16
+      pressReleases: 13
+      boardOfDirectors: 9
+      leadership: 8
+      sanity.fileAsset: 7
+      poster: 4
+      presentations: 3
+      homepageApproach: 1
+      homepagePipeline: 1
+  assessment: >-
+    This is a real, anonymously-queryable structured content surface, and it is recorded
+    here because the probe genuinely found it. It is NOT counted as a Diagonal
+    Therapeutics API: the endpoint, the query language (GROQ), the URL space and the
+    HTTP contract all belong to Sanity, Diagonal publishes and documents nothing about
+    it, and public readability is the Sanity default for a website dataset rather than
+    a deliberate API offering. No apis[] entry, no OpenAPI and no API pointer is wired
+    from it. Recorded as an observation only.
+contract_discovery:
+  openapi: >-
+    not found - probed /openapi.json, /openapi.yaml, /swagger.json, /api-docs, /docs
+    and /redoc on both the apex and www hosts; all 404. No API host exists to probe
+    separately.
+  graphql: not found - /graphql returns 404 and no graphql surface is documented
+  mcp: not found - no hosted MCP server, mcp.diagonaltx.com does not resolve
+  a2a_agent_card: >-
+    not found - both /.well-known/agent-card.json and the legacy /.well-known/agent.json
+    return 404 on diagonaltx.com and www.diagonaltx.com. No a2a/ artifact is written.
+  asyncapi: not found - no event, streaming or webhook surface is published
+  conclusion: >-
+    Diagonal Therapeutics publishes no machine-readable API contract of any kind. This
+    is a completed negative result, not an unfinished probe.
+x-evidence:
+  fetched: '2026-08-04'
+  method: curl GET with redirect-following, 12-20s timeout, apex and www hosts
+  dns_method: dig +short A on candidate API/docs/MCP subdomains

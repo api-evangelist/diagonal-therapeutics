@@ -1,0 +1,75 @@
+# Diagonal Therapeutics
+
+> Diagonal Therapeutics is a Watertown, Massachusetts clinical-stage biotechnology company founded in 2022 by CEO Alex Lugovskoy in partnership with Atlas Venture. It develops "clustering" agonist antibodies — multispecific antibodies that bind several cellular receptors at once and hold them in a specific geometry, switching a disease-disrupted signaling pathway back on rather than inhibiting it.
+
+Diagonal Therapeutics is a therapeutics developer, not a software vendor. As of 2026-08-04 it publishes **no public API, no developer portal, no API documentation and no machine-readable API contract**. Its web presence is a Next.js marketing site backed by a Sanity CMS. Do not assume or invent an `api.diagonaltx.com`, `docs.diagonaltx.com` or `developer.diagonaltx.com` endpoint — none of those hosts resolve. The `Disallow: /api/` line in its robots.txt refers to the site's own Next.js route handlers, not to a public Diagonal API.
+
+Note for crawlers: diagonaltx.com's robots.txt blocks **GPTBot** specifically (`User-Agent: GPTBot` / `Disallow: /`) and names no other AI crawler, so ClaudeBot, CCBot, Google-Extended, PerplexityBot and Bytespider are all permitted. This is an OpenAI-specific block rather than a general AI-crawler policy.
+
+## Company
+
+- [Diagonal Therapeutics](https://diagonaltx.com/): company website — approach, pipeline, platform, leadership, board, investors and news are all sections of the single homepage
+- [Crunchbase: Diagonal Therapeutics](https://www.crunchbase.com/organization/diagonal-therapeutics): funding and company profile
+- [LinkedIn](https://www.linkedin.com/company/diagonal-therapeutics/): company page and job postings
+- [MassBio member profile](https://www.massbio.org/members/diagonal-therapeutics/): Massachusetts biotech association listing
+- Headquarters: 200 Arsenal Yards Blvd, Suite 220, Watertown, MA 02472
+
+## Science and platform
+
+The DIAGONAL product engine combines computational and experimental techniques to make agonist antibody discovery tractable — historically a much harder problem than antagonist (blocking) antibody discovery. The published process: generate roughly 200,000 distinct antibody sequences per target, cluster them by predicted shape, bin by receptor complementarity, assemble multispecific antibodies from bin combinations, optimize molecular characteristics, then test in vitro and in vivo. Computational epitope filtering is the step the company has presented publicly as enabling reliable agonist design.
+
+## Pipeline
+
+- **DIAG723** — ALK1:BMPRII clustering agonist antibody, Phase 1/2, for hereditary hemorrhagic telangiectasia (HHT), with preclinical work in pulmonary arterial hypertension (PAH). First-in-class; restores ALK1 signaling impaired by the loss-of-function mutations that cause HHT. Holds US FDA orphan drug designation and an EMA orphan designation positive opinion for HHT.
+- **ALK1 follow-on clustering antibody** — discovery stage, cardiovascular disease
+- **Undisclosed programs** — discovery stage, renal and other diseases
+
+Therapeutic focus spans hematology, hepatology, nephrology and cardiovascular disease.
+
+## Clinical
+
+- **DIAMOND** ([NCT07623525](https://clinicaltrials.gov/study/NCT07623525)): Phase 1/2 multicenter, randomized, double-blind, placebo-controlled trial of subcutaneous DIAG723 in adults with HHT, evaluating safety, tolerability, pharmacokinetics, target-engagement biomarkers and preliminary efficacy. First patient dosed July 2026.
+- **HHT-IMPACT**: a prospective natural history study of adults living with HHT, run in partnership with Cure HHT.
+- [Patient information](https://diagonaltx.com/patients): the company's patient-facing page
+- clinicalinfo@diagonaltx.com: clinical trial enquiries
+
+Note: the machine-readable record for DIAMOND is published by NIH/NLM via the ClinicalTrials.gov API, not by Diagonal Therapeutics.
+
+## People
+
+- Alex Lugovskoy, Ph.D. — Founder and Chief Executive Officer (previously Biogen, Merrimack Pharmaceuticals, Morphic Therapeutic, Dragonfly Therapeutics)
+- Patrick Andre, Ph.D. — Chief Scientific Officer
+- John Lee, M.D., Ph.D. — Chief Medical Officer (appointed July 2025)
+- Ruhi Ahmed, Ph.D. — Chief Development Officer
+- Jonathan Piazza — Chief Financial Officer
+
+## Funding
+
+Approximately USD 255 million raised across two rounds.
+
+- **Series A**, USD 128 million, April 2024 — co-led by BVF Partners and Atlas Venture, with Lightspeed Venture Partners, RA Capital Management, Frazier Life Sciences, Viking Global Investors, Velosity Capital and Checkpoint Capital.
+- **Series B**, USD 125 million (oversubscribed), January 2026 — co-led by Sanofi Ventures and Janus Henderson Investors, with new investors Deep Track Capital, EcoR1 Capital, Logos Capital, Balyasny Asset Management, Woodline Partners and all existing investors. Paulina Hill, Ph.D. of Sanofi Ventures joined the board.
+- [Forge Global](https://forgeglobal.com/diagonal-therapeutics_stock/): secondary-market listing for private shares
+
+## News
+
+Press releases, conference posters and publications are listed on the homepage under [Latest News](https://diagonaltx.com/#latest-news) and enumerated in the site's [sitemap](https://diagonaltx.com/sitemap.xml) (17 `/news/` entries as of 2026-08-04).
+
+## Contact
+
+- info@diagonaltx.com: general enquiries
+- media@diagonaltx.com: media enquiries
+- clinicalinfo@diagonaltx.com: clinical trial enquiries
+- [Legal: Privacy Policy](https://diagonaltx.com/legal-documents/privacy-policy) · [Terms of Use](https://diagonaltx.com/legal-documents/terms-of-service)
+
+## Code and packages
+
+- No GitHub organization exists (`diagonaltx`, `diagonal-tx` and `diagonal-therapeutics` all 404).
+- No packages are published on npm, PyPI, RubyGems, crates.io, Packagist or NuGet. See `packages/diagonal-therapeutics-packages.yml`.
+
+## What this repo contains
+
+- `well-known/diagonal-therapeutics-well-known.yml`: the full `/.well-known/` and contract-discovery probe record (all misses, recorded with status codes), plus the one anonymously-readable structured surface observed — the third-party Sanity Content Lake dataset that renders the website, recorded as an observation and explicitly not counted as a Diagonal API
+- `packages/diagonal-therapeutics-packages.yml`: registry search record (no first-party packages)
+- `conformance/diagonal-therapeutics-conformance.yml`: FDA/EMA orphan designations and clinical-stage regulatory status; API standards recorded as not-applicable
+- `security/diagonal-therapeutics-domain-security.yml`: TLS/HSTS/DNSSEC/CAA/SPF/DMARC probe of diagonaltx.com

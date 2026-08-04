@@ -1,0 +1,118 @@
+generated: '2026-08-04'
+method: searched
+source: >-
+  Diagonal Therapeutics public statements, press releases and trade-press coverage
+  (2026-08-04 web search), plus this repo's own probe artifacts
+scope: >-
+  Diagonal Therapeutics publishes no API, so there are no API or cross-cutting technical
+  standards to assert. What it is actually measured against is the clinical and
+  regulatory regime for an investigational biologic. That regime is recorded here with
+  its status stated honestly - designations granted are recorded as granted, and
+  approval, which has not happened, is recorded as not achieved. The API/protocol
+  standards block is recorded as not-applicable rather than merely false, so this file is
+  never mistaken for a compliance posture the company does not claim.
+regulatory_regime:
+- id: fda-orphan-drug-designation
+  name: US FDA Orphan Drug Designation (21 CFR Part 316)
+  conforms: true
+  status: granted
+  subject: DIAG723 for hereditary hemorrhagic telangiectasia (HHT)
+  evidence: >-
+    Announced June 2025 - DIAG723 received orphan drug designation from the U.S. FDA for
+    the treatment of HHT.
+    https://diagonaltx.com/news/diagonals-first-in-class-clustering-antibody-diag723-receives-orphan-drug-designation-odd-from-u-s-fda-and-an-odd-positive-opinion-from-ema-for-treatment-of-hereditary-hemorrhagic-telangiectasia-hht
+- id: ema-orphan-designation
+  name: EMA Orphan Medicinal Product Designation (Regulation (EC) No 141/2000)
+  conforms: true
+  status: positive-opinion
+  subject: DIAG723 for hereditary hemorrhagic telangiectasia (HHT)
+  evidence: >-
+    Announced June 2025 alongside the FDA designation - an ODD positive opinion from the
+    EMA for DIAG723 in HHT.
+- id: fda-ind-clinical-trial
+  name: US FDA Investigational New Drug pathway - Phase 1/2 clinical trial conduct
+  conforms: true
+  status: in-progress
+  subject: DIAMOND (NCT07623525)
+  evidence: >-
+    DIAMOND is a Phase 1/2 multicenter, randomized, double-blind, placebo-controlled
+    trial of subcutaneous DIAG723 in adults with HHT; first patient dosed July 2026.
+  note: >-
+    Recorded as in-progress. The trial is open and enrolling; this is not a marketing
+    authorization.
+- id: fda-bla-marketing-authorization
+  name: US FDA Biologics License Application / marketing approval
+  conforms: false
+  status: not-reached
+  evidence: >-
+    No Diagonal Therapeutics product is approved. The lead program is in Phase 1/2.
+    Recorded as conforms:false because approval has not been sought or granted at this
+    stage of development, not because the company failed a check.
+- id: clinicaltrials-gov-registration
+  name: FDAAA 801 / ICMJE clinical trial registration
+  conforms: true
+  status: registered
+  evidence: >-
+    The DIAMOND trial is registered on ClinicalTrials.gov as NCT07623525. Note that the
+    machine-readable record for this trial is published by NIH/NLM through the
+    ClinicalTrials.gov API, not by Diagonal Therapeutics.
+api_standards:
+- id: openapi
+  conforms: false
+  applicable: false
+  evidence: >-
+    no public API contract published (see
+    well-known/diagonal-therapeutics-well-known.yml)
+- id: oauth2
+  conforms: false
+  applicable: false
+- id: openid-connect
+  conforms: false
+  applicable: false
+- id: rfc9457-problem-details
+  conforms: false
+  applicable: false
+- id: asyncapi
+  conforms: false
+  applicable: false
+- id: mcp
+  conforms: false
+  applicable: false
+- id: a2a
+  conforms: false
+  applicable: false
+  evidence: >-
+    /.well-known/agent-card.json and /.well-known/agent.json both 404 on diagonaltx.com
+    and www.diagonaltx.com
+- id: rfc9116-security-txt
+  conforms: false
+  applicable: true
+  evidence: /.well-known/security.txt returns 404 on diagonaltx.com
+- id: llms-txt
+  conforms: false
+  applicable: true
+  evidence: >-
+    /llms.txt returns 404. The site's robots.txt blocks GPTBot specifically while
+    permitting every other AI crawler.
+information_security_compliance:
+  found: false
+  note: >-
+    No trust center, SOC 2, ISO 27001, HIPAA attestation or equivalent
+    information-security certification page was found by probe-security-programs.py
+    (vdp=none trust=none) or by search. No `Compliance`, `TrustCenter` or `Security`
+    pointer is wired in apis.yml - and the FDA/EMA designations above are drug-regulatory
+    milestones, not a published information-security compliance program, so they do not
+    earn one either.
+vulnerability_disclosure:
+  found: false
+  note: >-
+    No security.txt, no bug bounty program (HackerOne/Bugcrowd/Intigriti) and no
+    responsible-disclosure page were found. probe-security-programs.py returned
+    vdp=none.
+domain_security_observed:
+  source: security/diagonal-therapeutics-domain-security.yml
+  summary: >-
+    diagonaltx.com serves TLS 1.3 with a certificate valid to 2026-10-04, and publishes
+    SPF and DMARC records. HSTS is NOT set, DNSSEC is not enabled, no CAA record is
+    published, and the DMARC policy is p=none (monitor only), so neither spoofed mail
+    nor a mis-issued certificate would be actively blocked today.

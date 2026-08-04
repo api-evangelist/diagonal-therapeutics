@@ -1,0 +1,39 @@
+generated: '2026-08-04'
+method: searched
+source: registry searches of npm, PyPI, RubyGems, crates.io, Packagist, NuGet, GitHub (2026-08-04)
+result: none
+notes: >-
+  Diagonal Therapeutics publishes no client SDK, because it publishes no public API. It
+  is a clinical-stage biotechnology company, not a software vendor. Every registry query
+  below returned zero results or unrelated fuzzy matches on the string "diagonal". No
+  `SDKs` pointer is wired in apis.yml and the sdk_count checks are correctly left
+  unearned.
+packages: []
+registries_checked:
+- registry: npm
+  query: diagonaltx / diagonal-therapeutics
+  result: >-
+    0 first-party packages; the @diagonaltx scope does not exist. Search returns only
+    unrelated matches on "dotted"/"diagonal" string similarity.
+- registry: pypi
+  query: diagonaltx, diagonal-therapeutics, diagonal_tx
+  result: 404 - no project under any spelling
+- registry: rubygems
+  query: diagonaltx
+  result: 0 results
+- registry: crates.io
+  query: diagonaltx
+  result: 0 results
+- registry: packagist
+  query: diagonaltx
+  result: >-
+    0 first-party matches; nearest hit is diagonal/laravel-ts-enum-generator from
+    Diagonal-HQ, an unrelated organization
+- registry: nuget
+  query: diagonaltx
+  result: 0 hits
+- registry: github
+  query: users/orgs diagonaltx, diagonal-tx, diagonal-therapeutics
+  result: >-
+    404 on all three - Diagonal Therapeutics has no GitHub organization or user account.
+    No `GitHubOrganization` pointer is wired.

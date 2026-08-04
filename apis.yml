@@ -1,17 +1,50 @@
 aid: diagonal-therapeutics
 name: Diagonal Therapeutics
-description: 'Diagonal Therapeutics is a company surfaced via the API Evangelist harvest backlog (source:
-  secondary-market) and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Diagonal Therapeutics is a Watertown, Massachusetts clinical-stage biotechnology
+  company founded in 2022 by CEO Alex Lugovskoy in partnership with Atlas Venture,
+  developing "clustering" agonist antibodies that switch broken signaling pathways
+  back on rather than inhibiting them. Its DIAGONAL product engine pairs computational
+  epitope filtering with experimental screening — generating roughly 200,000 candidate
+  antibody sequences per target, clustering them by predicted shape, binning by receptor
+  complementarity and assembling multispecific antibodies from those bins — to make
+  agonist antibody discovery tractable. The lead program, DIAG723, is a first-in-class
+  ALK1:BMPRII clustering agonist antibody that restores ALK1 signaling; it holds US FDA
+  and EMA orphan drug designation for hereditary hemorrhagic telangiectasia (HHT) and
+  entered the Phase 1/2 DIAMOND trial (NCT07623525), with a first patient dosed in July
+  2026, alongside preclinical work in pulmonary arterial hypertension. The pipeline
+  extends into hematology, hepatology, nephrology and cardiovascular disease. The company
+  has raised roughly USD 255 million across a USD 128 million Series A (April 2024,
+  co-led by BVF Partners and Atlas Venture) and an oversubscribed USD 125 million Series
+  B (January 2026, co-led by Sanofi Ventures and Janus Henderson Investors). Diagonal is
+  a therapeutics developer rather than a software vendor: it operates a Next.js marketing
+  site backed by a Sanity CMS, and publishes no developer portal, no API documentation
+  and no machine-readable API contract of any kind.
+image: https://diagonaltx.com/images/diamond-white-logo.webp
 url: https://raw.githubusercontent.com/api-evangelist/diagonal-therapeutics/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
 x-tier: stub
 x-tier-reason: harvest
+x-enrichment:
+  date: '2026-08-04'
+  status: minimal
+  artifacts_added: 5
+  pass: local-v1
 specificationVersion: '0.20'
 created: '2026-08-04'
 modified: '2026-08-04'
 tags:
 - Company
+- Biotechnology
+- Therapeutics
+- Antibodies
+- Drug Discovery
+- Rare Disease
+- Clinical Trials
+- Life Sciences
+- Pharmaceuticals
+- United States
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -20,4 +53,30 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
+  url: https://diagonaltx.com/
+- type: Blog
+  url: https://diagonaltx.com/#latest-news
+- type: Support
+  url: mailto:info@diagonaltx.com
+- type: PrivacyPolicy
+  url: https://diagonaltx.com/legal-documents/privacy-policy
+- type: TermsOfService
+  url: https://diagonaltx.com/legal-documents/terms-of-service
+- type: LinkedIn
+  url: https://www.linkedin.com/company/diagonal-therapeutics/
+- type: Careers
+  url: https://www.linkedin.com/company/diagonal-therapeutics/jobs/
+- type: Crunchbase
+  url: https://www.crunchbase.com/organization/diagonal-therapeutics
+- type: SecondaryMarket
   url: https://forgeglobal.com/diagonal-therapeutics_stock/
+- type: DomainSecurity
+  url: security/diagonal-therapeutics-domain-security.yml
+- type: WellKnown
+  url: well-known/diagonal-therapeutics-well-known.yml
+- type: Packages
+  url: packages/diagonal-therapeutics-packages.yml
+- type: Conformance
+  url: conformance/diagonal-therapeutics-conformance.yml
+- type: LLMsTxt
+  url: llms/diagonal-therapeutics-llms.txt
