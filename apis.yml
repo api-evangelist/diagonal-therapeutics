@@ -31,7 +31,7 @@ x-enrichment:
   status: minimal
   artifacts_added: 5
   pass: local-v1
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-08-04'
 modified: '2026-08-04'
 tags:
