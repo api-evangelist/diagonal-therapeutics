@@ -20,6 +20,17 @@ description: >-
   a therapeutics developer rather than a software vendor: it operates a Next.js marketing
   site backed by a Sanity CMS, and publishes no developer portal, no API documentation
   and no machine-readable API contract of any kind.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://diagonaltx.com/images/diamond-white-logo.webp
 url: https://raw.githubusercontent.com/api-evangelist/diagonal-therapeutics/refs/heads/main/apis.yml
 x-type: company
